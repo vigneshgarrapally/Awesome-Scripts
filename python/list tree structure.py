@@ -1,4 +1,6 @@
+#Replace with Seedir
 #https://stackoverflow.com/a/49912639
+#DisplayablePath.make_tree(Path('doc'), criteria=lambda path: True if path.name not in ('.git',  '__pycache__') else False))
 from pathlib import Path
 import argparse
 class DisplayablePath(object):
@@ -48,13 +50,11 @@ class DisplayablePath(object):
 
     @classmethod
     def _default_criteria(cls, path):
-        return True
+        #Ignores .git and __pycache__
+        ignorelist=['.git', '__pycache__']
+        return True if path.name not in ignorelist else False
 
-    @property
-    def displayname(self):
-        if self.path.is_dir():
-            return self.path.name + '/'
-        return self.path.name
+
 
     def displayable(self):
         if self.parent is None:
