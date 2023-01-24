@@ -1,14 +1,1 @@
-powershell/profile.ps1
 
-
-*.mp4
-*.m4v
-*.mov
-*.avi
-*.mpg
-*.mpeg
-*.wmv
-*.flv
-
-.ipynb_checkpoints/
-python/separate_files.py
