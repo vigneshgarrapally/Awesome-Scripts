@@ -27,7 +27,7 @@ else {
 }
 $duration=New-TimeSpan $start $end
 $diff='{0:00}:{1:00}:{2:00}' -f $duration.Hours,$duration.Minutes,$duration.Seconds
-$video_url,$audio_url=youtube-dl --youtube-skip-dash-manifest -g $yt_url
+$video_url,$audio_url=yt-dlp --youtube-skip-dash-manifest -g $yt_url
 $command="ffmpeg -ss  $start_pre -i '$video_url' -ss $start_pre -i '$audio_url' -map 0:v -map 1:a -ss $temp -t $diff -c:v libx264 -c:a aac $output"
 #Write-Output "downloading with the following command:"
 #Write-Output "$command"
